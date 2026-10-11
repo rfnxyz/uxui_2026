@@ -1,0 +1,160 @@
+@layer components {
+  .product-card {
+    position: relative;
+    width: 366px;
+    height: 570px;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    background-color: var(--color-sand-20);
+    border: 1.5px solid var(--color-sand);
+    border-radius: var(--radius-card);
+    padding: var(--space-16);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-16);
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  }
+
+  @media (hover: hover) {
+    .product-card:hover {
+      box-shadow: 0 12px 30px rgba(48, 38, 28, 0.12);
+      transform: translateY(-4px);
+    }
+  }
+
+  /* Contenedor de Imagen de la Card */
+  .product-card__img-wrap {
+    position: relative;
+    width: 334px;
+    height: 364px;
+    border-radius: var(--radius-img);
+    overflow: hidden;
+    background-color: var(--color-sand);
+  }
+
+  .product-card__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-normal);
+  }
+
+  @media (hover: hover) {
+    .product-card:hover .product-card__img {
+      transform: scale(1.03);
+    }
+  }
+
+  /* Botón de Favorito (Corazón) CSS-only (PRD Sección 8) */
+  .product-card__fav {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    z-index: 5;
+  }
+
+  .product-card__fav-checkbox {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .product-card__fav-label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 33px;
+    height: 33px;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(4px);
+    border-radius: var(--radius-circle);
+    transition: transform var(--transition-fast), background-color var(--transition-fast);
+  }
+
+  .product-card__fav-label:hover {
+    transform: scale(1.15);
+    background-color: rgba(255, 255, 255, 0.85);
+  }
+
+  .product-card__fav-checkbox:focus-visible + .product-card__fav-label {
+    outline: 2px solid var(--color-espresso);
+    outline-offset: 2px;
+  }
+
+  .product-card__fav-icon {
+    width: 20px;
+    height: 20px;
+    stroke: var(--color-espresso);
+    fill: none;
+    transition: fill var(--transition-fast), stroke var(--transition-fast);
+  }
+
+  /* Estado :checked cambia a corazón relleno */
+  .product-card__fav-checkbox:checked + .product-card__fav-label .product-card__fav-icon {
+    fill: #e53935;
+    stroke: #e53935;
+  }
+
+  /* Cuerpo de la Card */
+  .product-card__body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
+  }
+
+  .product-card__title {
+    font-family: var(--font-body);
+    font-size: var(--fs-card-title);
+    font-weight: 600;
+    color: var(--color-espresso);
+    line-height: 1.1;
+    margin-bottom: var(--space-4);
+  }
+
+  .product-card__desc {
+    font-family: var(--font-body);
+    font-size: 1.25rem; /* 20px */
+    line-height: 1.4; /* 28px */
+    font-weight: 400;
+    color: var(--color-maroon);
+    margin-bottom: var(--space-8);
+  }
+
+  /* Fila Precio + Botón */
+  .product-card__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+  }
+
+  .product-card__price {
+    font-family: var(--font-ui);
+    font-size: 1.25rem; /* 20px */
+    font-weight: 600;
+    color: var(--color-maroon);
+  }
+
+  .product-card__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 26px;
+    background-color: var(--color-maroon);
+    color: var(--color-white);
+    font-family: var(--font-ui);
+    font-size: var(--fs-sm);
+    font-weight: 500;
+    border-radius: var(--radius-btn);
+    box-shadow: 0 2px 8px rgba(42, 0, 0, 0.25);
+    transition: transform var(--transition-fast), background-color var(--transition-fast), box-shadow var(--transition-fast);
+  }
+
+  .product-card__btn:hover {
+    transform: translateY(-2px);
+    background-color: #420606;
+    box-shadow: 0 4px 12px rgba(42, 0, 0, 0.35);
+  }
+}

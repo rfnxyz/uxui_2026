@@ -1,0 +1,128 @@
+@layer components {
+  .footer {
+    background-color: var(--color-espresso);
+    color: var(--color-white);
+    padding-block: var(--space-48);
+  }
+
+  @media (min-width: 1024px) {
+    .footer {
+      min-height: 358px;
+      padding-block: 64px 48px;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .footer__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-40);
+    width: 100%;
+  }
+
+  @media (min-width: 640px) {
+    .footer__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 768px) {
+    .footer__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .footer__grid {
+      grid-template-columns: 1.5fr repeat(4, 1.2fr) 1.5fr;
+      align-items: flex-start;
+      gap: var(--space-28);
+    }
+  }
+
+  /* Columna 1: Marca / Logo */
+  .footer__brand {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .footer__logo {
+    font-family: var(--font-display);
+    font-size: var(--fs-logo);
+    font-weight: 700;
+    color: var(--color-white);
+    text-transform: capitalize;
+    letter-spacing: -0.5px;
+    margin-bottom: var(--space-16);
+  }
+
+  /* Encabezados de columna */
+  .footer__heading {
+    font-family: var(--font-display);
+    font-size: var(--fs-footer-h);
+    font-weight: 500;
+    text-transform: uppercase;
+    color: var(--color-white);
+    margin-bottom: var(--space-20);
+    letter-spacing: 0.5px;
+  }
+
+  /* Listas de enlaces */
+  .footer__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-12);
+  }
+
+  @media (min-width: 1200px) {
+    .footer__list {
+      gap: 16px;
+    }
+  }
+
+  .footer__link {
+    font-family: var(--font-ui);
+    font-size: var(--fs-md);
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.85);
+    transition: color var(--transition-fast), transform var(--transition-fast);
+    display: inline-block;
+  }
+
+  .footer__link:hover {
+    color: var(--color-white);
+    transform: translateX(3px);
+  }
+
+  /* Columna Redes Sociales */
+  .footer__social-list {
+    display: flex;
+    align-items: center;
+    gap: var(--space-12);
+    flex-wrap: wrap;
+  }
+
+  .footer__social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-circle);
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--color-white);
+    transition: transform var(--transition-fast), background-color var(--transition-fast);
+  }
+
+  .footer__social-link:hover {
+    transform: translateY(-3px);
+    background-color: rgba(255, 255, 255, 0.25);
+  }
+
+  .footer__social-link svg,
+  .footer__social-link img {
+    width: 20px;
+    height: 20px;
+  }
+}

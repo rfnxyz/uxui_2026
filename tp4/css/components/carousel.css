@@ -1,0 +1,123 @@
+@layer components {
+  /* Contenedor de sección de productos */
+  .products {
+    background-color: var(--color-bg);
+    padding-block: var(--space-56);
+    overflow: hidden;
+  }
+
+  @media (min-width: 1024px) {
+    .products {
+      padding-block: 64px 80px;
+    }
+  }
+
+  .products__title {
+    margin-bottom: var(--space-40);
+  }
+
+  @media (min-width: 1024px) {
+    .products__title {
+      margin-bottom: 64px;
+    }
+  }
+
+  /* Carrusel envolvente relativo para posicionar flechas */
+  .carousel-wrapper {
+    position: relative;
+    width: 100%;
+    margin-inline: auto;
+  }
+
+  @media (min-width: 1440px) {
+    .carousel-wrapper {
+      max-width: 1636px; /* 1476px cards + 2 x 80px margins para flechas */
+    }
+  }
+
+  /* Riel con scroll-snap nativo CSS puro */
+  .carousel-track {
+    display: flex;
+    gap: 4px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding-inline: var(--space-16);
+    padding-block: var(--space-8);
+  }
+
+  .carousel-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media (min-width: 1024px) {
+    .carousel-track {
+      padding-inline: 80px;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    .carousel-track {
+      max-width: 1476px;
+      margin-inline: auto;
+      padding-inline: 0;
+      justify-content: flex-start;
+    }
+  }
+
+  /* Flechas de navegación circular (PRD Sección 5.4 R3, 7 y 8) */
+  .carousel-arrow {
+    display: none;
+    position: absolute;
+    top: calc(50% - 35.5px);
+    z-index: 10;
+    width: 71px;
+    height: 71px;
+    border-radius: var(--radius-circle);
+    background-color: var(--color-white);
+    color: var(--color-espresso);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+    align-items: center;
+    justify-content: center;
+    transition: transform var(--transition-fast), background-color var(--transition-fast), box-shadow var(--transition-fast);
+  }
+
+  @media (min-width: 1024px) {
+    .carousel-arrow {
+      display: inline-flex;
+    }
+  }
+
+  .carousel-arrow:hover {
+    transform: scale(1.08);
+    background-color: var(--color-sand);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+  }
+
+  .carousel-arrow--prev {
+    left: var(--space-16);
+  }
+
+  @media (min-width: 1440px) {
+    .carousel-arrow--prev {
+      left: 10px;
+    }
+  }
+
+  .carousel-arrow--prev svg,
+  .carousel-arrow--prev img {
+    transform: rotate(180deg);
+  }
+
+  .carousel-arrow--next {
+    right: var(--space-16);
+  }
+
+  @media (min-width: 1440px) {
+    .carousel-arrow--next {
+      right: 10px;
+    }
+  }
+}
